@@ -1,0 +1,834 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="曾笑雨的个人网志" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="因为和同学准备挑战杯时涉及到使用结构方程模型的统计方法，看了些相应的书。结构方程模型很不好懂，也许有人会遇到和我一样的困惑，索性把邮件内容发出来，希望学习过程中的一些总结能够帮到更多人。以下正文： 最近看结构方程模型的书，主要是两本，一本是台湾邱皓政老师写的《结构方程模型的原理与应用》，写得非常之好，简单易懂，张厚粲老师写的序；另一本是温忠麟、侯杰泰、刘红云三位老师编写的《调节效应和中介效应分析》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="结构方程模型初探（1）">
+<meta property="og:url" content="https://v754424340.github.io/e7-bb-93-e6-9e-84-e6-96-b9-e7-a8-8b-e6-a8-a1-e5-9e-8b-e5-88-9d-e6-8e-a2-ef-bc-881-ef-bc-89/index.html">
+<meta property="og:site_name" content="曾笑雨的个人网志">
+<meta property="og:description" content="因为和同学准备挑战杯时涉及到使用结构方程模型的统计方法，看了些相应的书。结构方程模型很不好懂，也许有人会遇到和我一样的困惑，索性把邮件内容发出来，希望学习过程中的一些总结能够帮到更多人。以下正文： 最近看结构方程模型的书，主要是两本，一本是台湾邱皓政老师写的《结构方程模型的原理与应用》，写得非常之好，简单易懂，张厚粲老师写的序；另一本是温忠麟、侯杰泰、刘红云三位老师编写的《调节效应和中介效应分析》">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-01-17T14:55:54.164Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="结构方程模型初探（1）">
+<meta name="twitter:description" content="因为和同学准备挑战杯时涉及到使用结构方程模型的统计方法，看了些相应的书。结构方程模型很不好懂，也许有人会遇到和我一样的困惑，索性把邮件内容发出来，希望学习过程中的一些总结能够帮到更多人。以下正文： 最近看结构方程模型的书，主要是两本，一本是台湾邱皓政老师写的《结构方程模型的原理与应用》，写得非常之好，简单易懂，张厚粲老师写的序；另一本是温忠麟、侯杰泰、刘红云三位老师编写的《调节效应和中介效应分析》">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  <title> 结构方程模型初探（1） | 曾笑雨的个人网志 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">曾笑雨的个人网志</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <h1 class="site-subtitle" itemprop="description"></h1>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://v754424340.github.io/e7-bb-93-e6-9e-84-e6-96-b9-e7-a8-8b-e6-a8-a1-e5-9e-8b-e5-88-9d-e6-8e-a2-ef-bc-881-ef-bc-89/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="曾笑雨">
+    <meta itemprop="description" content>
+    <meta itemprop="image" content="/upload/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="曾笑雨的个人网志">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="曾笑雨的个人网志" src>
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                结构方程模型初探（1）
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-14T13:28:42+08:00">
+                2016-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/心理学/" itemprop="url" rel="index">
+                    <span itemprop="name">心理学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/e7-bb-93-e6-9e-84-e6-96-b9-e7-a8-8b-e6-a8-a1-e5-9e-8b-e5-88-9d-e6-8e-a2-ef-bc-881-ef-bc-89/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="e7-bb-93-e6-9e-84-e6-96-b9-e7-a8-8b-e6-a8-a1-e5-9e-8b-e5-88-9d-e6-8e-a2-ef-bc-881-ef-bc-89/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>因为和同学准备挑战杯时涉及到使用结构方程模型的统计方法，看了些相应的书。结构方程模型很不好懂，也许有人会遇到和我一样的困惑，索性把邮件内容发出来，希望学习过程中的一些总结能够帮到更多人。以下正文：</p>
+<p>最近看结构方程模型的书，主要是两本，一本是台湾邱皓政老师写的《结构方程模型的原理与应用》，写得非常之好，简单易懂，张厚粲老师写的序；另一本是温忠麟、侯杰泰、刘红云三位老师编写的《调节效应和中介效应分析》，有一部分就是温忠麟发的论文里的内容，此外还增添了一些更基础的矩阵、协方差的内容，以及一些更高级的二次效应、潜增长模型等。大有收获。</p>
+<p>收获主要来自两个方面，一是大概明白结构方程模型的理论和运用过程了，二是对我们自己挑战杯项目的研究目的也更清楚了。</p>
+<p>从历史来看的话，统计学上是先有因素分析和回归分析，之后，回归分析发展成路径模型，因素分析进化成了潜在结构因素分析。在1970年左右，一个大牛利用数学矩阵把潜变量模型和路径分析巧妙整合，于是就有了结构方程模型。我们能观察和测量到的一些变量，如性别、年龄、体重，在结构方程模型的体系里，被称为显变量，而那些无法被观察到的，如智力、自我效能感，就被称为是潜变量。因素分析，就是获得潜变量的一种方法。我们手机一堆数据，也就是一组观察变量，然后进行变量间的公变关系分析，抽取出一些因素，并为它们命名，这些就是潜变量了。因为我们事先并不知道这些潜变量到底是什么鬼，所以这就被称为探索性因素分析。</p>
+<p>由于结构方程模型是基于潜变量模型的，而探索性因素分析事先没有潜变量，所以探索性因素分析大概并不算是结构方程模型的一部分，在实际使用的时候，我们也都是用spss，从“分析-降维”里使用探索性因素分析。</p>
+<p>另外一种情况下，我们构建好了理论，理论中已经包含了一些内涵具体、外延清晰的潜变量，并且，我们假定某些题目（观察变量）能够和潜变量对应。在这种情况下，我们收集资料，分析我们假设的对应模型和数据得来的对应模型的差异。因为我们事先已经对潜变量有一些假设，这就被称为是验证性因素分析。而路径分析，就是一个因果关系模型，具体来说，就是一连串中介效应组合成的复杂模型。</p>
+<p>以上是结构方程模型的发展背景和两个基本用途的介绍，接下来说说它的组成。一个完整的结构方程模型，包括结构模型和测量模型。结构模型就是潜变量之间的关系，测量模型则是潜变量和显变量的关系。两个模型中都有很多参数和变量，大多是希腊字母，概率论里都接触过一些。如果我们单独使用测量模型，没有结构模型，那就是验证性因素分析；如果我们单独看待结构模型，那就是传统的路径分析。</p>
+<p>刚才我们也说了，一位大牛用矩阵把潜变量模型和路径分析整合了起来。测量模型和结构模型有很多变量和参数，我们也可以用八种矩阵把他们整合。整合之后，结构模型矩阵有两个，测量模型矩阵有三个，残差矩阵有三个。但矩阵又是什么呢？我也不是很理解，但我们可以暂时用内生变量、外源变量、潜变量、显变量的排列组合来把矩阵进行划分。模型主要是由变量和参数组成，参数分为自由参数和固定参数，是对总体的估计，暂且按下不表，因为我也不懂……</p>
+<p>先说变量。潜变量和显变量前面已经介绍过了，下面我们再说说外源变量和内生变量。结构方程模型里，用内生和外源取代了自变量和因变量的概念。这一点从英文和一个特殊情况来解释比较好理解。因变量的英文是dependent variable，也就是依赖别人的变量，但如果在一个结构方程模型里，前人所谓的“自变量和因变量”可以相互作用呢？那dependent又从何而来？所以因变量这个概念就不再适用了，内生变量取代了因变量。</p>
+<p>内生变量和外源变量本是传统路径分析里的术语，我想了个办法方便大家记忆和理解。在一个路径图里，内生变量就是路径的箭头朝内的变量，外生变量就是箭头朝外的变量，既有朝内箭头又有朝外箭头的，就是第三变量，可能是中介变量和调节变量，也可能是协变量，但大多数情况都是中介变量，这一点我理解得也不是太透彻，存疑。</p>
+<p>说回潜变量调节效应的检验吧。温忠麟在文章里说自变量和调节变量都是潜变量时，需要用结构方程模型对调节效应进行检验，这本来是没错的，也就是因为这一点，我才觉得刘亚楠老师说“潜变量就算总分嘛”有点不负责任，但我看了温忠麟写的书之后才发现，他提出潜变量的调节效应其实就是交互效应，要检验的话可以用化潜为显的办法，也就是算分量表的分……也有的方法，把潜变量当成一个因素（factor），然后用主成分因素分析，把因素得分作为潜变量的观测值。</p>
+<p>但温忠麟重点介绍的潜变量交互效应（调节效应）的检验方法，是加入乘积指标。简单说，就是既要检验时管倾和应对方式和考试焦虑的关系，还要检验交互项（时管倾x应对方式）对考试焦虑的影响，在交互效应模型中，这三个外源变量都有各自的显变量（观测变量），作为内生变量的考试焦虑，也有对应的观测变量。建模之后就是检验两个主效应和一个交互效应。加入乘积指标检验潜变量交互效应的方法还有一系列其他步骤，但今天先到此为止吧。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/e4-b9-a6-e6-8a-84-ef-bc-9a-e3-80-8a-e8-a2-ab-e8-ae-a8-e5-8e-8c-e7-9a-84-e5-8b-87-e6-b0-94-e3-80-8b/" rel="next" title="书抄：《被讨厌的勇气》">
+                <i class="fa fa-chevron-left"></i> 书抄：《被讨厌的勇气》
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/e4-b9-a6-e6-8a-84-ef-bc-9a-e3-80-8a-e9-ab-98-e9-9a-be-e5-ba-a6-e8-b0-88-e8-af-9d-e3-80-8b/" rel="prev" title="书抄：《高难度谈话》">
+                书抄：《高难度谈话》 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="e7-bb-93-e6-9e-84-e6-96-b9-e7-a8-8b-e6-a8-a1-e5-9e-8b-e5-88-9d-e6-8e-a2-ef-bc-881-ef-bc-89/" data-title="结构方程模型初探（1）" data-content data-url="https://v754424340.github.io/e7-bb-93-e6-9e-84-e6-96-b9-e7-a8-8b-e6-a8-a1-e5-9e-8b-e5-88-9d-e6-8e-a2-ef-bc-881-ef-bc-89/">
+  <div class="ds-share-inline">
+    <ul class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="e7-bb-93-e6-9e-84-e6-96-b9-e7-a8-8b-e6-a8-a1-e5-9e-8b-e5-88-9d-e6-8e-a2-ef-bc-881-ef-bc-89/" data-title="结构方程模型初探（1）" data-url="https://v754424340.github.io/e7-bb-93-e6-9e-84-e6-96-b9-e7-a8-8b-e6-a8-a1-e5-9e-8b-e5-88-9d-e6-8e-a2-ef-bc-881-ef-bc-89/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/upload/avatar.jpg" alt="曾笑雨">
+          <p class="site-author-name" itemprop="name">曾笑雨</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">曾笑雨</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"v754424340"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
