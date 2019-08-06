@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>NSVS pilot Analysis</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Hejing, Chenxiao, Xiaoyu" />
+    <meta name="date" content="2019-08-06" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding/plotly.js"></script>
+    <script src="libs/typedarray/typedarray.min.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# NSVS pilot Analysis
+### Hejing, Chenxiao, Xiaoyu
+### 2019-08-06
+
+---
+
+ 
+
+
+
+
+
+---
+class:inverse,middle,center
+
+## What we are going to discuss about
+
+
+### 1.To identify proper dilemmas (i.e., exclude the 'low quality' ones)
+
+--
+
+### 2.To idientify those people with deontological and utilitarian preference by checking whether they behave consistently
+
+--
+
+### 3.To validate this classification by testing the difference across a series of measurements.
+
+
+
+
+
+---
+
+## Overview of all **24** dilemmas
+<div class="container st-container">
+<h3>Data Frame Summary</h3>
+<h4>all_dilemma_dt</h4>
+<strong>Dimensions</strong>: 84 x 24
+  <br/><strong>Duplicates</strong>: 1
+<br/>
+<div style="max-height:300px;overflow-y:scroll;margin:10px 2px">
+  <table class="table table-striped table-bordered st-table st-table-striped st-table-bordered st-multiline ">
+    <thead>
+      <tr>
+        <th align="center" class="no st-protect-top-border"><strong>No</strong></th>
+        <th align="center" class="variable st-protect-top-border"><strong>Variable</strong></th>
+        <th align="center" class="stats.values st-protect-top-border"><strong>Stats / Values</strong></th>
+        <th align="center" class="freqs.pct.valid st-protect-top-border"><strong>Freqs (% of Valid)</strong></th>
+        <th align="center" class="graph st-protect-top-border"><strong>Graph</strong></th>
+        <th align="center" class="missing st-protect-top-border"><strong>Missing</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="center">1</td>
+        <td align="left">data.Q19
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.5
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">41</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">48.8%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">43</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">51.2%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAEYAAAAtBAMAAADhMwAuAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADVJREFUOMtjYBh8QAk3UBSEqlE2xglG1YxwNcSkH0F8gMpqlPABwv4yNhpVM6LVEJN+BhMAAAz/vWMJMJCTAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwM1Y8IgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMEILhJ4AAAAASUVORK5CYII="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">2</td>
+        <td align="left">data.Q196
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.2
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">67</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">79.8%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">17</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">20.2%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAGYAAAAtBAMAAACubgP+AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADlJREFUSMdjYBh+QIkUANWjbEw8MBrVM6pnGOshJ/8IkgLorAfJtYrE6kEKt1E9o3pGtB5y8s9wAgBwk+Sz9D6jDwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMDNWPCIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDgtMDZUMTc6MTA6MTkrMDg6MDBCC4SeAAAAAElFTkSuQmCC"></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">3</td>
+        <td align="left">data.Q110
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.7
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">26</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">30.9%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">58</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">69.0%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAFoAAAAtBAMAAADcoWFIAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADxJREFUSMdjYBi6QAkdKApiA1DVysZoYFT1qOpBrZq09C1IHKCDaiXiAK4wwQqMRlWPqh4kqklL30MRAACnM9X1sV5gnAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMDNWPCIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDgtMDZUMTc6MTA6MTkrMDg6MDBCC4SeAAAAAElFTkSuQmCC"></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">4</td>
+        <td align="left">data.Q122
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.4
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">49</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">58.3%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">35</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">41.7%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAE4AAAAtBAMAAADy5EDaAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADhJREFUOMtjYBj8QIkQgKpTNsYPjEbVjaojQx2x6U+QEKCROhyuUkRXh8O/o+pG1VGkjtj0N5gBAM80xzdQ8Ck/AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwM1Y8IgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMEILhJ4AAAAASUVORK5CYII="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">5</td>
+        <td align="left">data.Q128
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.5
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">44</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">52.4%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">40</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">47.6%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAEcAAAAtBAMAAAAO8WsQAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADhJREFUOMtjYBicQAkfUIAqUjbGA0YVjSpCKCIqPQniAwJUV4THRQhFuH1nNKpoVBGyIqLS02ADAJ4uv7Mouf+KAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwM1Y8IgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMEILhJ4AAAAASUVORK5CYII="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">6</td>
+        <td align="left">data.Q130
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.7
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">23</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">27.4%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">61</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">72.6%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAF4AAAAtBAMAAADVSsEyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADxJREFUSMdjYBj6QAkVKAriAlD1ysYoYFT9qPohrZ7U9C9ILKCTeiViAfbwwQmMRtWPqh8C6klN/0MZAACStdrfnoP5aQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMDNWPCIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDgtMDZUMTc6MTA6MTkrMDg6MDBCC4SeAAAAAElFTkSuQmCC"></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">7</td>
+        <td align="left">data.Q106
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.3
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">61</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">72.6%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">23</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">27.4%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAF4AAAAtBAMAAADVSsEyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADlJREFUSMdjYBj6QIlYAFWvbEwcMBpVP6p+CKgnNf0LEgvopB7NlYqE1KOFz6j6UfVDWj2p6X8oAwCaWtrfZl3fpwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMDNWPCIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDgtMDZUMTc6MTA6MTkrMDg6MDBCC4SeAAAAAElFTkSuQmCC"></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">8</td>
+        <td align="left">data.Q108
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.4
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">52</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">61.9%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">32</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">38.1%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAFIAAAAtBAMAAADPdiG8AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADhJREFUOMtjYBg6QIkwgKpUNiYEjEZVjqqkskri06cgYUBDlVhdpohNJVa/j6ocVUlTlcSnz6EAAMXUzCFNDjMBAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwM1Y8IgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMEILhJ4AAAAASUVORK5CYII="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">9</td>
+        <td align="left">data.Q120
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.3
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">58</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">69.0%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">26</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">30.9%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAFoAAAAtBAMAAADcoWFIAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADlJREFUSMdjYBi6QIk4AFWtbEwMMBpVPap6kKgmLX0LEgfooBrDhYr4VGOEyajqUdWDWjVp6XsoAgCrZ9X1s6M9mwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMDNWPCIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDgtMDZUMTc6MTA6MTkrMDg6MDBCC4SeAAAAAElFTkSuQmCC"></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">10</td>
+        <td align="left">data.Q124
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.3
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">62</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">73.8%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">22</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">26.2%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAF8AAAAtBAMAAAA6iKoMAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADpJREFUSMdjYBgeQIlYoADVoGxMJBjVMKph6GkgOT8IEgsE6KYBzaWENaCGktGohlENw0kDyflhqAMAV4XdLyYCmUMAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTktMDgtMDZUMTc6MTA6MTkrMDg6MDAzVjwiAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwQguEngAAAABJRU5ErkJggg=="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">11</td>
+        <td align="left">data.Q126
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.2
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">66</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">78.6%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">18</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">21.4%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAGQAAAAtBAMAAACqm9PDAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADlJREFUSMdjYBheQIkEANWibEw0MBrVMqplWGkhI78IkgDoqgXZrYrEaUEOsVEto1pGlBYy8stwAQAcAOI+JxrG+gAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMDNWPCIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDgtMDZUMTc6MTA6MTkrMDg6MDBCC4SeAAAAAElFTkSuQmCC"></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">12</td>
+        <td align="left">data.Q135
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.5
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">44</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">52.4%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">40</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">47.6%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAEcAAAAtBAMAAAAO8WsQAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADhJREFUOMtjYBicQAkfUIAqUjbGA0YVjSpCKCIqPQniAwJUV4THRQhFuH1nNKpoVBGyIqLS02ADAJ4uv7Mouf+KAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwM1Y8IgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMEILhJ4AAAAASUVORK5CYII="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">13</td>
+        <td align="left">data.Q94
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.6
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">30</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">35.7%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">54</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">64.3%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAFQAAAAtBAMAAADCaFH7AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADtJREFUOMtjYBhaQAkLUBREBVClysaYYFTpqFK6KiUhvQoSAWiqVIkIgCcE0IDRqNJRpTRVSkJ6HSoAAOXXzpYORX6XAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwM1Y8IgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMEILhJ4AAAAASUVORK5CYII="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">14</td>
+        <td align="left">data.Q97
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.4
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">48</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">57.1%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">36</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">42.9%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAEwAAAAtBAMAAAD2EZDnAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADhJREFUOMtjYBjcQIkAgCpTNsYLjEaVjSojShmR6U2QAKCJMlxuUkRVhsuno8pGlZGkjMj0NlgBAHL0xMKnjMfHAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwM1Y8IgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMEILhJ4AAAAASUVORK5CYII="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">15</td>
+        <td align="left">data.Q101
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.5
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">46</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">54.8%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">38</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">45.2%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAEoAAAAtBAMAAAD7D+CgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADhJREFUOMtjYBi8QAk/gKpSNsYHjEZVjarCoYq49CWIH9BAFU4XKSKrwunHUVWjqvCqIi59DUYAANYFwk03YRu1AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwM1Y8IgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMEILhJ4AAAAASUVORK5CYII="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">16</td>
+        <td align="left">data.Q104
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.8
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">20</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">23.8%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">64</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">76.2%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAGIAAAAtBAMAAACnhaOEAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADxJREFUSMdjYBg+QAkZKAriA1AdysZIYFTHqI5hrYP0/CFIPKCjDiXiAbawwguMRnWM6hjiOkjPH8MBAADTe9/JYPLlfAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMDNWPCIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDgtMDZUMTc6MTA6MTkrMDg6MDBCC4SeAAAAAElFTkSuQmCC"></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">17</td>
+        <td align="left">data.Q191
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.5
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">46</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">54.8%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">38</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">45.2%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAEoAAAAtBAMAAAD7D+CgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADhJREFUOMtjYBi8QAk/gKpSNsYHjEZVjarCoYq49CWIH9BAFU4XKSKrwunHUVWjqvCqIi59DUYAANYFwk03YRu1AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwM1Y8IgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMEILhJ4AAAAASUVORK5CYII="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">18</td>
+        <td align="left">data.Q132
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.7
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">27</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">32.1%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">57</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">67.9%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAFgAAAAtBAMAAADYVLF1AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADtJREFUOMtjYBiaQAkDKApiAqhiZWN0MKp4VPGgUkxSehYkCtBcsRJRAGdoYAFGo4pHFQ+YYpLS81ADAFFz04AaPWEZAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwM1Y8IgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMEILhJ4AAAAASUVORK5CYII="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">19</td>
+        <td align="left">data.Q99
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.7
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">22</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">26.2%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">62</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">73.8%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAF8AAAAtBAMAAAA6iKoMAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAAD1JREFUSMdjYBgeQAkVCOIEAlANysbIwGhUw6iG4aSB5PwgSCygnwYlYoEC1lDCA0Y1jGoYehpIzg9DHQAAfzHdLwimE28AAAAldEVYdGRhdGU6Y3JlYXRlADIwMTktMDgtMDZUMTc6MTA6MTkrMDg6MDAzVjwiAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwQguEngAAAABJRU5ErkJggg=="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">20</td>
+        <td align="left">data.Q113
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.7
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">29</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">34.5%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">55</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">65.5%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAFYAAAAtBAMAAADGnYHGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADtJREFUOMtjYBh6QAkTKAqiA6haZWMMMKp2VO2AqiUl/QoSA2isVokYgDscMIDRqNpRtXRUS0r6HUoAABEE0QtPzUw+AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwM1Y8IgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMEILhJ4AAAAASUVORK5CYII="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">21</td>
+        <td align="left">data.Q114
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.7
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">23</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">27.4%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">61</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">72.6%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAF4AAAAtBAMAAADVSsEyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADxJREFUSMdjYBj6QAkVKAriAlD1ysYoYFT9qPohrZ7U9C9ILKCTeiViAfbwwQmMRtWPqh8C6klN/0MZAACStdrfnoP5aQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMDNWPCIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDgtMDZUMTc6MTA6MTkrMDg6MDBCC4SeAAAAAElFTkSuQmCC"></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">22</td>
+        <td align="left">data.Q116
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.7
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">26</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">30.9%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">58</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">69.0%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAFoAAAAtBAMAAADcoWFIAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADxJREFUSMdjYBi6QAkdKApiA1DVysZoYFT1qOpBrZq09C1IHKCDaiXiAK4wwQqMRlWPqh4kqklL30MRAACnM9X1sV5gnAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMDNWPCIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDgtMDZUMTc6MTA6MTkrMDg6MDBCC4SeAAAAAElFTkSuQmCC"></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">23</td>
+        <td align="left">data.Q118
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.9
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">9</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">10.7%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">75</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">89.3%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAHAAAAAtBAMAAACE3vJRAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAAD9JREFUSMdjYBgZQAkMFAWJB1CNysYgMKpxVOOoRipqJDs/kqBjoDUqkQxQQpUEYDSqcVTjqEYCGsnOj8MdAADV3PD8CU6K6gAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMDNWPCIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDgtMDZUMTc6MTA6MTkrMDg6MDBCC4SeAAAAAElFTkSuQmCC"></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+      <tr>
+        <td align="center">24</td>
+        <td align="left">data.Q134
+[numeric]</td>
+        <td align="left">Min : 0
+Mean : 0.5
+Max : 1</td>
+        <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">46</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">54.8%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 0 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">38</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">45.2%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+        <td align="left" style="vertical-align:middle;padding:0;background-color:transparent"><img style="border:none;background-color:transparent;padding:0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAEoAAAAtBAMAAAD7D+CgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAD1BMVEX////9/v2mpqb39/f///+DdZCQAAAAAnRSTlMAAHaTzTgAAAABYktHRACIBR1IAAAAB3RJTUUH4wgHAQoTjjBzlwAAADhJREFUOMtjYBi8QAk/gKpSNsYHjEZVjarCoYq49CWIH9BAFU4XKSKrwunHUVWjqvCqIi59DUYAANYFwk03YRu1AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE5LTA4LTA2VDE3OjEwOjE5KzA4OjAwM1Y8IgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOS0wOC0wNlQxNzoxMDoxOSswODowMEILhJ4AAAAASUVORK5CYII="></td>
+        <td align="center">0
+(0%)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>Generated by <a href='https://github.com/dcomtois/summarytools'>summarytools</a> 0.9.3 (<a href='https://www.r-project.org/'>R</a> version 3.6.1)<br/>2019-08-06</p>
+</div>
+
+---
+
+## **Action** in incongruent and congruent dilemmas
+#### **Four** potential 'low quality' dilemmas
+.pull-left[*Say YES to **incongruent** dilemmas*
+1. 51.2%:牺牲人质否决支付赎金给恐怖分子买武器
+
+1. **20.2%:杀一个人移植其器官，救其他没器官就会死的人**
+
+1. **69%:为一心求死但暂时健康的绝症病人提供致命药物**
+
+1. 41.7%:给会传染对老人小孩致命病毒留学生致命药物
+
+1. 47.6%:使用疫苗让数十人死亡、数百人获救
+
+1. **72.6%:为拯救被困可能脱水致死的小孩，对犯人使用酷刑**
+]
+
+.pull-right[*Say YES to **congruent** dilemmas*
+1. 27.4%:使用疫苗让数十人死亡、同等数量的数十人获救
+
+1. 38.1%:给会传染胃痉挛病毒的留学生致命药物
+
+1. 30.9%:为防止丢失名画被运出国，对犯人使用酷刑
+
+1. 26.2%:为一心求死但暂时健康且很快就会康复的病人提供致命药物
+
+1. 21.4%:杀一个人移植其器官，救其他没器官以后不太健康的人
+
+1. **47.6%:牺牲人质否决支付赎金给恐怖分子买食物**
+]
+
+---
+## **Inaction** in incongruent and congruent dilemmas
+
+.pull-left[*Say YES to **incongruent** dilemmas*
+1. **64.3%:举报同事使用疫苗让数十人死亡、数百人获救**
+
+1. 42.9%:将会给老人小孩传染致命病毒的留学生可能死于此病毒的留学生带出隔离器回国治疗
+
+1. 45.2%:举报同事为拯救被困可能脱水致死的小孩，对犯人使用酷刑
+
+1. **76.2%:举报同事杀一个人移植其器官，救其他没器官就会死的人**
+
+1. 45.2%:拯救人质支付赎金给恐怖分子买武器
+
+1. **67.9%:为一心求死但心脏病发作的绝症病人提供药物**
+]
+
+.pull-right[*Say YES to **congruent** dilemmas*
+1. 73.8%:为一心求死、心脏病发作但很快就会好起来的的绝症病人提供药物
+
+1. 65.5%:举报同事 为防止丢失名画被运出国，对犯人使用酷刑
+
+1. 72.6%:举报同事杀一个人移植其器官，救其他没器官以后不太健康的人
+
+1. 69%:举报同事使用疫苗让数十人死亡、同等数量的数十人获救
+
+1. **89.3%:拯救人质支付赎金给恐怖分子买食物**
+
+1. **45.2%:将传染胃溃疡的可能死于此病毒的留学生带出隔离器回国治疗**
+]
+
+??同样地，在本来情况是inaction 的dilemma里面，我们也发现了5个dilemma是区分质量比较低的
+---
+class: center
+## Consistent rate of saying YES in two types dilemmas
+
+
+
+
+
+<div id="htmlwidget-a2dc5a7bbe68225add0d" style="width:720px;height:360px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a2dc5a7bbe68225add0d">{"x":{"data":[{"x":[0,0,0.166666666666667,0.166666666666667,0.166666666666667,0.333333333333333,0.333333333333333,0.333333333333333,0.333333333333333,0.5,0.5,0.5,0.666666666666667,0.666666666666667,0.666666666666667,0.666666666666667,0.666666666666667,0.833333333333333,0.833333333333333,0.833333333333333,0.833333333333333,0.833333333333333,0.833333333333333,1],"y":[0,0.166666666666667,0,0.166666666666667,0.333333333333333,0,0.166666666666667,0.333333333333333,0.5,0.166666666666667,0.333333333333333,0.5,0,0.166666666666667,0.333333333333333,0.5,1,0.166666666666667,0.333333333333333,0.5,0.666666666666667,0.833333333333333,1,0.5],"text":["n: 2<br />perc_acinc: 0.0000000<br />perc_accon: 0.0000000<br />gender: Females","n: 1<br />perc_acinc: 0.0000000<br />perc_accon: 0.1666667<br />gender: Females","n: 3<br />perc_acinc: 0.1666667<br />perc_accon: 0.0000000<br />gender: Females","n: 3<br />perc_acinc: 0.1666667<br />perc_accon: 0.1666667<br />gender: Females","n: 1<br />perc_acinc: 0.1666667<br />perc_accon: 0.3333333<br />gender: Females","n: 3<br />perc_acinc: 0.3333333<br />perc_accon: 0.0000000<br />gender: Females","n: 3<br />perc_acinc: 0.3333333<br />perc_accon: 0.1666667<br />gender: Females","n: 1<br />perc_acinc: 0.3333333<br />perc_accon: 0.3333333<br />gender: Females","n: 3<br />perc_acinc: 0.3333333<br />perc_accon: 0.5000000<br />gender: Females","n: 4<br />perc_acinc: 0.5000000<br />perc_accon: 0.1666667<br />gender: Females","n: 3<br />perc_acinc: 0.5000000<br />perc_accon: 0.3333333<br />gender: Females","n: 2<br />perc_acinc: 0.5000000<br />perc_accon: 0.5000000<br />gender: Females","n: 1<br />perc_acinc: 0.6666667<br />perc_accon: 0.0000000<br />gender: Females","n: 3<br />perc_acinc: 0.6666667<br />perc_accon: 0.1666667<br />gender: Females","n: 2<br />perc_acinc: 0.6666667<br />perc_accon: 0.3333333<br />gender: Females","n: 3<br />perc_acinc: 0.6666667<br />perc_accon: 0.5000000<br />gender: Females","n: 1<br />perc_acinc: 0.6666667<br />perc_accon: 1.0000000<br />gender: Females","n: 2<br />perc_acinc: 0.8333333<br />perc_accon: 0.1666667<br />gender: Females","n: 3<br />perc_acinc: 0.8333333<br />perc_accon: 0.3333333<br />gender: Females","n: 1<br />perc_acinc: 0.8333333<br />perc_accon: 0.5000000<br />gender: Females","n: 1<br />perc_acinc: 0.8333333<br />perc_accon: 0.6666667<br />gender: Females","n: 1<br />perc_acinc: 0.8333333<br />perc_accon: 0.8333333<br />gender: Females","n: 1<br />perc_acinc: 0.8333333<br />perc_accon: 1.0000000<br />gender: Females","n: 1<br />perc_acinc: 1.0000000<br />perc_accon: 0.5000000<br />gender: Females"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.4,"size":[14.6900838272055,3.77952755905512,19.2093842065082,19.2093842065082,3.77952755905512,19.2093842065082,19.2093842065082,3.77952755905512,19.2093842065082,22.6771653543307,19.2093842065082,14.6900838272055,3.77952755905512,19.2093842065082,14.6900838272055,19.2093842065082,3.77952755905512,14.6900838272055,19.2093842065082,3.77952755905512,3.77952755905512,3.77952755905512,3.77952755905512,3.77952755905512],"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Females","legendgroup":"Females","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0,0,0.166666666666667,0.166666666666667,0.333333333333333,0.333333333333333,0.333333333333333,0.5,0.5,0.5,0.5,0.666666666666667,0.666666666666667,0.666666666666667,0.666666666666667,0.666666666666667,0.666666666666667,0.833333333333333,0.833333333333333,0.833333333333333,1],"y":[0,0.166666666666667,0,0.166666666666667,0,0.166666666666667,0.333333333333333,0,0.166666666666667,0.333333333333333,0.666666666666667,0.166666666666667,0.333333333333333,0.5,0.666666666666667,0.833333333333333,1,0.333333333333333,0.5,1,0.666666666666667],"text":["n: 1<br />perc_acinc: 0.0000000<br />perc_accon: 0.0000000<br />gender: Males","n: 1<br />perc_acinc: 0.0000000<br />perc_accon: 0.1666667<br />gender: Males","n: 3<br />perc_acinc: 0.1666667<br />perc_accon: 0.0000000<br />gender: Males","n: 1<br />perc_acinc: 0.1666667<br />perc_accon: 0.1666667<br />gender: Males","n: 1<br />perc_acinc: 0.3333333<br />perc_accon: 0.0000000<br />gender: Males","n: 4<br />perc_acinc: 0.3333333<br />perc_accon: 0.1666667<br />gender: Males","n: 1<br />perc_acinc: 0.3333333<br />perc_accon: 0.3333333<br />gender: Males","n: 1<br />perc_acinc: 0.5000000<br />perc_accon: 0.0000000<br />gender: Males","n: 2<br />perc_acinc: 0.5000000<br />perc_accon: 0.1666667<br />gender: Males","n: 1<br />perc_acinc: 0.5000000<br />perc_accon: 0.3333333<br />gender: Males","n: 1<br />perc_acinc: 0.5000000<br />perc_accon: 0.6666667<br />gender: Males","n: 3<br />perc_acinc: 0.6666667<br />perc_accon: 0.1666667<br />gender: Males","n: 4<br />perc_acinc: 0.6666667<br />perc_accon: 0.3333333<br />gender: Males","n: 2<br />perc_acinc: 0.6666667<br />perc_accon: 0.5000000<br />gender: Males","n: 1<br />perc_acinc: 0.6666667<br />perc_accon: 0.6666667<br />gender: Males","n: 2<br />perc_acinc: 0.6666667<br />perc_accon: 0.8333333<br />gender: Males","n: 1<br />perc_acinc: 0.6666667<br />perc_accon: 1.0000000<br />gender: Males","n: 1<br />perc_acinc: 0.8333333<br />perc_accon: 0.3333333<br />gender: Males","n: 1<br />perc_acinc: 0.8333333<br />perc_accon: 0.5000000<br />gender: Males","n: 2<br />perc_acinc: 0.8333333<br />perc_accon: 1.0000000<br />gender: Males","n: 1<br />perc_acinc: 1.0000000<br />perc_accon: 0.6666667<br />gender: Males"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":0.4,"size":[3.77952755905512,3.77952755905512,19.2093842065082,3.77952755905512,3.77952755905512,22.6771653543307,3.77952755905512,3.77952755905512,14.6900838272055,3.77952755905512,3.77952755905512,19.2093842065082,22.6771653543307,14.6900838272055,3.77952755905512,14.6900838272055,3.77952755905512,3.77952755905512,3.77952755905512,14.6900838272055,3.77952755905512],"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"Males","legendgroup":"Males","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":30.6118721461187,"r":7.30593607305936,"b":44.5662100456621,"l":48.9497716894977},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.25,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Say YES in incongruent dilemmas","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.25,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Say YES in congruent dilemmas","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.826771653543307},"annotations":[{"text":"n<br />gender","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"3264635d3dc7":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"3264635d3dc7","visdat":{"3264635d3dc7":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+.footnote[[*]Utili:high X, low Y;
+Deon:low X, low Y]
+
+
+
+
+
+
+
+
+
+
+
+---
+class: center
+
+## Consistent rate of saying YES in two types dilemmas (delete 4 unqualified dilemmas)
+
+<div id="htmlwidget-b748cfdf9d0daf8b9a7a" style="width:720px;height:360px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b748cfdf9d0daf8b9a7a">{"x":{"data":[{"x":[0,0,0.333333333333333,0.333333333333333,0.333333333333333,0.333333333333333,0.666666666666667,0.666666666666667,0.666666666666667,0.666666666666667,0.666666666666667,1,1,1],"y":[0,0.2,0,0.2,0.4,1,0,0.2,0.4,0.6,1,0.2,0.4,0.6],"text":["n: 10<br />perc_acinc_4: 0.0000000<br />perc_accon_2: 0.0<br />gender: Females","n:  2<br />perc_acinc_4: 0.0000000<br />perc_accon_2: 0.2<br />gender: Females","n:  3<br />perc_acinc_4: 0.3333333<br />perc_accon_2: 0.0<br />gender: Females","n:  6<br />perc_acinc_4: 0.3333333<br />perc_accon_2: 0.2<br />gender: Females","n:  6<br />perc_acinc_4: 0.3333333<br />perc_accon_2: 0.4<br />gender: Females","n:  1<br />perc_acinc_4: 0.3333333<br />perc_accon_2: 1.0<br />gender: Females","n:  1<br />perc_acinc_4: 0.6666667<br />perc_accon_2: 0.0<br />gender: Females","n:  5<br />perc_acinc_4: 0.6666667<br />perc_accon_2: 0.2<br />gender: Females","n:  3<br />perc_acinc_4: 0.6666667<br />perc_accon_2: 0.4<br />gender: Females","n:  1<br />perc_acinc_4: 0.6666667<br />perc_accon_2: 0.6<br />gender: Females","n:  2<br />perc_acinc_4: 0.6666667<br />perc_accon_2: 1.0<br />gender: Females","n:  4<br />perc_acinc_4: 1.0000000<br />perc_accon_2: 0.2<br />gender: Females","n:  4<br />perc_acinc_4: 1.0000000<br />perc_accon_2: 0.4<br />gender: Females","n:  1<br />perc_acinc_4: 1.0000000<br />perc_accon_2: 0.6<br />gender: Females"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.4,"size":[22.6771653543307,10.0787401574803,12.6879594480195,17.8649951338569,17.8649951338569,3.77952755905512,3.77952755905512,16.3779527559055,12.6879594480195,3.77952755905512,10.0787401574803,14.6900838272055,14.6900838272055,3.77952755905512],"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Females","legendgroup":"Females","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0,0,0.333333333333333,0.333333333333333,0.333333333333333,0.333333333333333,0.333333333333333,0.666666666666667,0.666666666666667,0.666666666666667,0.666666666666667,0.666666666666667,0.666666666666667,1,1,1],"y":[0,0.2,0,0.2,0.4,0.8,1,0,0.2,0.4,0.6,0.8,1,0.2,0.4,0.8],"text":["n:  3<br />perc_acinc_4: 0.0000000<br />perc_accon_2: 0.0<br />gender: Males","n:  1<br />perc_acinc_4: 0.0000000<br />perc_accon_2: 0.2<br />gender: Males","n:  7<br />perc_acinc_4: 0.3333333<br />perc_accon_2: 0.0<br />gender: Males","n:  5<br />perc_acinc_4: 0.3333333<br />perc_accon_2: 0.2<br />gender: Males","n:  1<br />perc_acinc_4: 0.3333333<br />perc_accon_2: 0.4<br />gender: Males","n:  1<br />perc_acinc_4: 0.3333333<br />perc_accon_2: 0.8<br />gender: Males","n:  1<br />perc_acinc_4: 0.3333333<br />perc_accon_2: 1.0<br />gender: Males","n:  1<br />perc_acinc_4: 0.6666667<br />perc_accon_2: 0.0<br />gender: Males","n:  2<br />perc_acinc_4: 0.6666667<br />perc_accon_2: 0.2<br />gender: Males","n:  2<br />perc_acinc_4: 0.6666667<br />perc_accon_2: 0.4<br />gender: Males","n:  4<br />perc_acinc_4: 0.6666667<br />perc_accon_2: 0.6<br />gender: Males","n:  1<br />perc_acinc_4: 0.6666667<br />perc_accon_2: 0.8<br />gender: Males","n:  2<br />perc_acinc_4: 0.6666667<br />perc_accon_2: 1.0<br />gender: Males","n:  2<br />perc_acinc_4: 1.0000000<br />perc_accon_2: 0.2<br />gender: Males","n:  1<br />perc_acinc_4: 1.0000000<br />perc_accon_2: 0.4<br />gender: Males","n:  1<br />perc_acinc_4: 1.0000000<br />perc_accon_2: 0.8<br />gender: Males"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":0.4,"size":[12.6879594480195,3.77952755905512,19.2093842065082,16.3779527559055,3.77952755905512,3.77952755905512,3.77952755905512,3.77952755905512,10.0787401574803,10.0787401574803,14.6900838272055,3.77952755905512,10.0787401574803,10.0787401574803,3.77952755905512,3.77952755905512],"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"Males","legendgroup":"Males","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":30.6118721461187,"r":7.30593607305936,"b":44.5662100456621,"l":48.9497716894977},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.25,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Say YES in incongruent dilemmas","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.25,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Say YES in congruent dilemmas","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.826771653543307},"annotations":[{"text":"n<br />gender","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"326444c748ab":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"326444c748ab","visdat":{"326444c748ab":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+.footnote[[*]Utili:high X, low Y;
+Deon:low X, low Y]
+
+---
+class: inverse, center, middle
+
+## Basically, we can find two extreme group.
+
+--
+
+## But an additional cluster analysis would be more informative.
+
+
+
+---
+
+class:center
+
+## Clustering analysis based on consistent ratio of saying YES in two types dilemmas(all 12 dilemmas)
+
+![](NSVS_pilot2_190802_files/figure-html/unnamed-chunk-9-1.svg)&lt;!-- --&gt;
+
+.footnote[19,X=0.16,Y=0.05;
+26,X=0.41,Y=0.27;
+27,X=0.73,Y=0.32;
+12,X=0.75,Y=0.85
+]
+
+
+
+
+
+---
+class:center
+
+## Clustering analysis based on consistent ratio of saying YES in two types dilemmas(-4 dilemmas)
+
+![](NSVS_pilot2_190802_files/figure-html/unnamed-chunk-11-1.svg)&lt;!-- --&gt;
+
+.footnote[16, X=0,Y=0.04;
+28, X=0.33,Y=0.28;
+14, X=0.62,Y=0.81;
+26, X=0.82,Y=0.28
+]
+
+
+
+---
+class:center
+## Let's take a look at these groups
+
+```
+## [1] 14
+```
+
+```
+## [1] 0.6190476
+```
+
+```
+## [1] 0.8142857
+```
+
+
+&lt;table class="table table-condensed"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; clusterone.ID &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; clusterone.perc_acinc_4 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; clusterone.perc_accon_2 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 31 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 40 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 51 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 52 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 53 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 56 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 64 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 75 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 78 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 79 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 81 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+class:center
+## Let's take a look at these groups
+### 
+
+```
+## [1] 16
+```
+
+```
+## [1] 0
+```
+
+```
+## [1] 0.0375
+```
+
+
+&lt;table class="table table-condensed"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; clustertwo.ID &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; clustertwo.perc_acinc_4 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; clustertwo.perc_accon_2 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 18 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 23 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 26 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 35 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 47 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 54 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 55 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 59 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 60 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 67 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 82 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+class:center
+## Let's take a look at these groups
+
+```
+## [1] 28
+```
+
+```
+## [1] 0.3333333
+```
+
+```
+## [1] 0.1785714
+```
+
+
+&lt;table class="table table-condensed"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; clusterthree.ID &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; clusterthree.perc_acinc_4 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; clusterthree.perc_accon_2 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 14 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 19 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 20 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 21 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 32 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 33 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 37 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 38 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 41 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 42 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 43 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 44 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 46 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 49 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 57 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 58 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 62 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 71 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 73 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 83 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3333333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+class:center
+## Let's take a look at these groups
+
+```
+## [1] 26
+```
+
+```
+## [1] 0.8205128
+```
+
+```
+## [1] 0.2769231
+```
+
+
+&lt;table class="table table-condensed"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; clusterfour.ID &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; clusterfour.perc_acinc_4 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; clusterfour.perc_accon_2 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 13 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 15 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 22 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 24 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 27 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 29 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 30 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 34 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 36 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 39 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 45 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 48 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 63 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 65 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 66 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 68 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 69 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 70 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 72 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 74 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 76 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 80 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 84 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6666667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+class:inverse,middle,center
+
+## Based on the hint of cluster analysis, we further define utilitarian and deontological preference with consistent rate.
+
+--
+
+## Deon: X==0 &amp; Y==0
+
+## Utili: X==1 &amp; Y&lt;=0.2
+
+
+---
+
+### People with **deontological** preference(n=13) in moral dilemmas
+
+
+&lt;table class="table table-condensed"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; clustertwo.ID &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; clustertwo.perc_acinc_4 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; clustertwo.perc_accon_2 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink"&gt;0&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue"&gt;0&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink"&gt;0&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue"&gt;0&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 18 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink"&gt;0&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue"&gt;0&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 23 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink"&gt;0&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue"&gt;0&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 26 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink"&gt;0&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue"&gt;0&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 35 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink"&gt;0&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue"&gt;0&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 47 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink"&gt;0&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue"&gt;0&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink"&gt;0&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue"&gt;0&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 54 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink"&gt;0&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue"&gt;0&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 55 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink"&gt;0&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue"&gt;0&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 67 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink"&gt;0&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue"&gt;0&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink"&gt;0&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue"&gt;0&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 82 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink"&gt;0&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue"&gt;0&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+### People with **utilitarian** preference(n=6) in moral dilemmas 
+
+
+&lt;table class="table table-condensed"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; clusterfour.ID &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; clusterfour.perc_acinc_4 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; clusterfour.perc_accon_2 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 15 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink; width: 100.00%"&gt;1&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue; width: 100.00%"&gt;0.2&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink; width: 100.00%"&gt;1&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue; width: 100.00%"&gt;0.2&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 29 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink; width: 100.00%"&gt;1&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue; width: 100.00%"&gt;0.2&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 48 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink; width: 100.00%"&gt;1&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue; width: 100.00%"&gt;0.2&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 72 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink; width: 100.00%"&gt;1&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue; width: 100.00%"&gt;0.2&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 80 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightpink; width: 100.00%"&gt;1&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightblue; width: 100.00%"&gt;0.2&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+.footnote[[*]n=0 if we set Y==0...]
+
+---
+class:inverse,middle,center
+
+## How about adding inaction dilemmas as additional restrict?
+
+--
+
+## Well..
+
+--
+
+## Then probably no one sruvive...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+class:inverse,middle,center
+
+## But we can double check with the remaining inaction incongruent and congruent dilemmas!
+
+---
+
+## Less YES to incongruent inaction dilemmas(3) in people with utilitarian preference
+
+![](NSVS_pilot2_190802_files/figure-html/unnamed-chunk-27-1.svg)&lt;!-- --&gt;
+
+.footnote[[*]paying terrorist to save people but money was used to buy weapon]
+
+---
+
+## No group difference in congruent inaction dilemmas (4)
+
+![](NSVS_pilot2_190802_files/figure-html/unnamed-chunk-28-1.svg)&lt;!-- --&gt;
+
+.footnote[[*]paying terrorist to save people but money was used to buy food]
+
+
+---
+
+class:inverse,middle,center
+
+## Whether these two groups differ in CNI model parameters?
+
+---
+
+class:center
+
+## CNI model: Poor model fitting and complex conclusion
+
+![CNI model](NSVS_CNI Model_190731.png)
+
+
+
+
+
+
+
+---
+class:inverse,middle,center
+
+## And how about the group difference in other measurements?
+
+---
+
+## People with utilitarian preference are more agree with the value of harming someone to save others
+
+![](NSVS_pilot2_190802_files/figure-html/unnamed-chunk-30-1.svg)&lt;!-- --&gt;
+---
+
+## People with utilitarian preference show less social responsibility
+
+![](NSVS_pilot2_190802_files/figure-html/unnamed-chunk-31-1.svg)&lt;!-- --&gt;
+
+--
+
+.footnote[[*]Wait! Is that an outlier?]
+
+---
+
+## People with utilitarian preference show are weaker at perspective taking
+
+![](NSVS_pilot2_190802_files/figure-html/unnamed-chunk-32-1.svg)&lt;!-- --&gt;
+
+---
+class:inverse,center,middle
+
+## Does excluding the outlier influence our results?
+
+--
+
+### The only significant group differen lie on the social responsibility...
+
+### That is, people with utilitarian preference show less social responsibility.
+
+
+![](NSVS_pilot2_190802_files/figure-html/unnamed-chunk-33-1.svg)&lt;!-- --&gt;
+
+
+
+
+
+![](NSVS_pilot2_190802_files/figure-html/unnamed-chunk-34-1.svg)&lt;!-- --&gt;
+
+
+
+
+
+![](NSVS_pilot2_190802_files/figure-html/unnamed-chunk-35-1.svg)&lt;!-- --&gt;
+
+
+
+![](NSVS_pilot2_190802_files/figure-html/unnamed-chunk-36-1.svg)&lt;!-- --&gt;
+
+
+
+
+
+![](NSVS_pilot2_190802_files/figure-html/unnamed-chunk-37-1.svg)&lt;!-- --&gt;
+
+
+
+
+
+
+---
+class:center,middle,inverse
+
+# Summary
+
+--
+
+### First we exclude those low quality dilemmas
+
+--
+
+### Then we identify people with utilitarian (n=6) and deontological(n=13) people with the index of consistent rate in two types dilemmas
+
+--
+
+### Finally we show these two groups differ in some similar dilemmas, and some aspects of CNI model, utilitarian scale, and prosocial personality battery.
+
+---
+class:center,middle,inverse
+
+## What's the next then?
+
+--
+
+### Maybe another pilot study using 20 dilemmas (PD; can't fit CNI model)
+
+--
+
+### Would that be better?
+
+--
+
+### Not sure...
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
