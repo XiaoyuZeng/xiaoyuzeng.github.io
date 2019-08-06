@@ -40,8 +40,9 @@ options(htmltools.dir.version = FALSE)
 options(servr.daemon = TRUE)
 ```
 
-class:inverse,middle,center
 
+---
+class:inverse,middle,cente
 ## What we are going to discuss about
 
 
