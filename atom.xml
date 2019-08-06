@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xiaoyuzeng.github.io/"/>
-  <updated>2017-06-16T06:41:22.856Z</updated>
+  <updated>2019-08-06T09:14:05.276Z</updated>
   <id>https://xiaoyuzeng.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学R时习之：自学R语言过程中我遇到的问题/报错，以及解决措施</title>
+    <link href="https://xiaoyuzeng.github.io/%E5%AD%A6R%E6%97%B6%E4%B9%A0%E4%B9%8B%EF%BC%9A%E8%87%AA%E5%AD%A6R%E8%AF%AD%E8%A8%80%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98-%E6%8A%A5%E9%94%99%EF%BC%8C%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%8E%AA%E6%96%BD/"/>
+    <id>https://xiaoyuzeng.github.io/学R时习之：自学R语言过程中我遇到的问题-报错，以及解决措施/</id>
+    <published>2019-08-06T08:25:00.000Z</published>
+    <updated>2019-08-06T09:14:05.276Z</updated>
+    
+    <content type="html"><![CDATA[<p>自学R的时候遇到的问题挺多的，大部分问题Google一下都有答案，当场也就解决了。但有些问题重复出现，每次出现又得重新Google，也是挺费时间的。所以干脆开个bug集锦文章，总结整理一下自己自学R的时候遇到的问题/出过的报错，还有对应的解决方案。</p><p>希望能帮遇到同样问题的你节省一点时间。</p><p>爱因斯坦说这个问题我早想过了的故事</p><h1 id="问题-怎么删除数据框里面特定的行？"><a href="#问题-怎么删除数据框里面特定的行？" class="headerlink" title="问题:怎么删除数据框里面特定的行？"></a>问题:怎么删除数据框里面特定的行？</h1><p>which<br>dat[with(dat,y&gt;=2),]</p><h1 id="报错：-Error-in-if-stderr-lt-10-Machine-double-eps-max-abs-mx-abs-my-stop-“data-are-essentially-constant”"><a href="#报错：-Error-in-if-stderr-lt-10-Machine-double-eps-max-abs-mx-abs-my-stop-“data-are-essentially-constant”" class="headerlink" title="报错： Error in if (stderr &lt; 10  .Machine$double.eps  max(abs(mx), abs(my))) stop(“data are essentially constant”) :"></a>报错： Error in if (stderr &lt; 10 <em> .Machine$double.eps </em> max(abs(mx), abs(my))) stop(“data are essentially constant”) :</h1><p>  missing value where TRUE/FALSE needed</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;自学R的时候遇到的问题挺多的，大部分问题Google一下都有答案，当场也就解决了。但有些问题重复出现，每次出现又得重新Google，也是挺费时间的。所以干脆开个bug集锦文章，总结整理一下自己自学R的时候遇到的问题/出过的报错，还有对应的解决方案。&lt;/p&gt;
+&lt;p&gt;希望能帮遇
+      
+    
+    </summary>
+    
+    
+      <category term="R语言" scheme="https://xiaoyuzeng.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="自学" scheme="https://xiaoyuzeng.github.io/tags/%E8%87%AA%E5%AD%A6/"/>
+    
+      <category term="数据分析" scheme="https://xiaoyuzeng.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
   
   <entry>
     <title>暂时离开：大三上学期的十个转变</title>
@@ -463,30 +491,6 @@
     </summary>
     
       <category term="书抄" scheme="https://xiaoyuzeng.github.io/categories/%E4%B9%A6%E6%8A%84/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>我为什么要写文章</title>
-    <link href="https://xiaoyuzeng.github.io/e6-88-91-e4-b8-ba-e4-bb-80-e4-b9-88-e8-a6-81-e4-b9-a6-e5-86-99/"/>
-    <id>https://xiaoyuzeng.github.io/e6-88-91-e4-b8-ba-e4-bb-80-e4-b9-88-e8-a6-81-e4-b9-a6-e5-86-99/</id>
-    <published>2016-11-26T04:15:31.000Z</published>
-    <updated>2017-01-17T14:55:54.212Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="\" alt="\"></p><div>今年国庆期间，突然有了搭建独立博客的冲动，于是很欢快地开始了租服务器、买域名、学wordpress的征程。虽说搭建博客是冲动，但之后我确实在博客发了不少文章，于是也开始思考一个问题：<strong>为什么要写文章？</strong></div><div>&nbsp;</div><div>之所以要思考这个问题，是因为在大多数人眼里，<strong>写作百无一用。我也承认，写作并不是回报率很高的一件事情。</strong>我固定在每周六上午写博客，写完一篇随笔、一篇书抄，基本上就该吃午饭了。想到室友和同学都还在温暖的被窝里刷手机，享受周末的大好时光，而我却得早早地起床想观点 、列大纲、找素材，难免心理失衡。</div><div>&nbsp;</div><div>但对少数人而言，写作还是有独特价值的，每个人对写作的坚持都其来有自，理由不尽相同。<strong>总的来说，写作确实能帮助我形成一个更清晰的自我，同时学着去把自我产生的观点和经验更好地与外界分享。</strong></div><div>&nbsp;</div><div>写作是一件很需要精神能量的创造活动，写作的好坏能够反映自我的状态起伏，所以<strong>固定时间写博客能够帮助我监控自我的精神状态。</strong>如果用盖楼作比，写作有两个步骤，一是设计出楼房图案，二是将建筑材料建成高楼。如果我想在周末写出满意的文章，那我首先需要将本周产生的灵感存放在印象笔记里，同时，我还需要在闲暇时间对灵感进行思考，必要时还得查阅相关的书籍，以便在写作时能为“灵感地图 ”提供配套的砖块和水泥。</div><div>&nbsp;</div><div>以这篇文章为例，写作对自我的精神监控作用是卓有成效的。由于我上周忙于阅读实验室项目的文献以及挑战杯的答辩，并没有时间去收集灵感和素材，就只能从以前存在印象笔记里的灵感挑一个开始写。写作像是一面镜子，能够反映我上周在阅读、心理学专业课、时间管理上的收获多寡。</div><div>&nbsp;</div><div>写作是为了监控自我，读者初看可能会觉得这个观点不近人情，那我还是赶紧坦白从宽：<strong>除了监控自我的精神状态，写作也能帮助你更好地与自我对话，以一种平等的姿态。</strong>若套用普通心理学的术语，书写是梳理自身的认知、情感与行为的绝妙工具。</div><div>&nbsp;</div><div>苏格拉底“认识你自己 ”的箴言妇孺皆知，但我在大二一节社会心理学的课堂上发现，<strong>并不是每个人都有主动了解自己的觉悟。</strong>当时我们老师介绍了库尼和马克帕兰德发明的\”Who am I？\”的测试，然后要求班上每位同学都对“我是谁”这个问题给出二十个答案。大部分同学都是磕磕巴巴地给出自己的回答，恕我直言，大多浅薄。这让我意识到，若无必要，大部分人是不会主动去与自我对话的。<strong>而书写本质上是表达自己的观点，这就倒逼你去了解自我，深挖自己的经历和内心。</strong>一篇有灵魂的文章必定表达自我真实的感受和想法，不了解自我，文章也就难写出灵气。</div><div>&nbsp;</div><div>最近重看《沉默的大多数》，王小波在一篇书评时表达了一个观点，“我们可以通过写作改变自我”，我很是喜欢。之所以提到这句话，是要借机引出本文的第三个论点，<strong>无论是监控自我还是了解自我，都是为了更好地改变自我</strong>。关于写作的第三点作用，我以前想到过更酷的一个说法，存着一直不舍得写：写作就是Root你的大脑。</div><div>&nbsp;</div><div>我们知道，Root是安卓系统的一个术语，意为获得安卓操作系统的超级用户权限，从而可以对底层的系统应用进行编辑甚至删除。从某种意义上来说，<strong>写作就是Root你的大脑，进而实现改变自我意识最底层的人生观念。</strong></div><div>&nbsp;</div><div>据我观察，在心理学的科普文章中，最火的无非两类，一是亲密关系，另一类传授基于认知心理学的学习方法论。但凡有点追求又积极上进的青年，应该都会认同我这个观点：<strong>我们需要对我们的认知、观念进行持续升级</strong>。可是， 如何升级？升级不成，反而会被年少时形成的一些落后封闭观念放冷箭暗伤，这都是常有的事。如何解决？</div><div>&nbsp;</div><div>写。持续写。将深埋在潜意识的种种内隐观念通过书写的方式进行意识化，然后对文字进行反思和修改，并重复巩固新观念，这是认知升级的不二法门。有一定心理学知识的读者可能会马上反应过来，这不就是叙事疗法吗？将故事和问题外化，并对其进行重新建构。从这个角度来说，<strong>写作是自我对话式的心理咨询</strong>。</div><div>&nbsp;</div><div>John Donne有句诗流传甚广，“每个人都不是一座孤岛”，我深表赞同。<strong>所以监控自我、了解自我、改变自我都能帮助我们更好地向外界分享自己的观点和经验，即自我表达。</strong></div><div>&nbsp;</div><div>我深信，<strong>每个人都有表达的欲望，而书写是较理想的表达方式。</strong>上周读舒明月的《好文笔是读出来的》，看到一句话，“自我表达是每个人心底根深蒂固的渴求，它一点也不亚于对饮食男女的追逐。要知道，口头表达总是有局限之处的。 ”忍不住击节赞叹。<strong>但用文字传递观点是需要练习的。如果不希望自己的观点无人问津、被误解，就需要坚持书写，以提高表达技巧和提炼深刻观点的能力。</strong></div><div>&nbsp;</div><div><strong>从技巧来看，用文字传达一个观点需要逻辑清晰，文笔流畅。</strong>我不仅自己写博客，平时也会关注其他人的独立博客。其中有个研究地球化学的博主，他写的文章条理清晰，有理有据，很令人佩服。相反，有些博客就写得不够好，长篇大论，不知所云。我希望第一类文章在简书、公众号、知乎出现得越多越好，而对于第二类文章，我只盼它千万别从我的笔下流出。</div><div>&nbsp;</div><div><strong>一个观点，逻辑和表达风格固然重要，但最关键的还是要深刻。在深刻性上，口头表达就输文字一筹，文字的自我繁殖能力功不可没。</strong>在我有限的写作经验里，我发现一个令人吃惊的现象：将一个观点转化为文字符号有利于大脑衍生出更多新观点，就像是键盘会独立思考。相反，在头脑中对思考结果进行思考则不成立。</div><div>&nbsp;</div><div>比如我现在写的这篇文章，大纲最初只有“监控自我、了解自我、改变自我、表达自我”十六个字，可写到表达自我时，我就鬼使神差地开始思考表达时的逻辑、文笔和文字自我繁衍能力。据我推测，<strong>文字的自我繁殖能力根基在于我们大脑的联想能力，我们看到一个词时会本能地立刻想到另一个词，当然，这也与文字符号本身的语义网络有关。</strong></div><div>&nbsp;</div><div><strong>我想试着再举一例，来论证用文字表达自我的必要性。</strong>最近林丹出轨事件刷爆了朋友圈，自媒体纷纷发声，不同观点的文章我至少看了二十篇。但很遗憾，并没有看到与我立场一致的文章。很多自媒体人都从林丹的公众形象、责任感等方面入手分析，但我却对婚姻制度本身产生了思考。</div><div>&nbsp;</div><div>离婚率逐年飙升，公众人物出轨也颇为常见，这显然不是个别现象，很可能是我们的婚恋观念和婚姻制度已经与社会整体的生产能力脱节。两百万年来，人类这个物种首次基本实现温饱，生存已经不是最大的问题。我们的生活方式（通讯、交通、工作方式） 也发生了翻天覆地的变化，在这两点前提下，婚姻和家庭对现代人而言究竟意味着什么？现有的一夫一妻、育儿养老的家庭形式以及配套的婚姻制度是否需要改变？西方的独身人群也在逐年增加，这也值得思考。</div><div>&nbsp;</div><div><strong>我们是周围环境的一部分，如果没有人替你表达观点，那就只能自己发声。这就是我为什么要写文章。</strong></div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 曾笑雨</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2016.11.26</div><div>&nbsp;</div>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;\&quot; alt=&quot;\&quot;&gt;&lt;/p&gt;
-&lt;div&gt;今年国庆期间，突然有了搭建独立博客的冲动，于是很欢快地开始了租服务器、买域名、学wordpress的征程。虽说搭建博客是冲动，但之后我确实在博客发了不少文章，于是也开始思考一个问题：&lt;strong&gt;为什么要写文章
-      
-    
-    </summary>
-    
-      <category term="思考" scheme="https://xiaoyuzeng.github.io/categories/%E6%80%9D%E8%80%83/"/>
     
     
   </entry>

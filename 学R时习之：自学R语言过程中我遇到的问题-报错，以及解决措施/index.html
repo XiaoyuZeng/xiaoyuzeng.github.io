@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,9 +39,6 @@
   
 
   
-    
-    
-  
 
   
 
@@ -51,10 +48,6 @@
 
   
 
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -67,7 +60,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="R语言,自学,数据分析,">
 
 
 
@@ -85,17 +78,18 @@
 
 
 
-<meta name="description" content="#迷人的烦恼 因为要收集素材写博客，匆匆回顾了九月份的日记，发现本学期的第三周真是过得非常艰难，隔着文字我都能感觉到自己的疲惫。 这些疲惫主要来自三个方面。我要用两周时间复习完微积分和普通心理学，这是转专业的代价，无话可说；其次，和同学准备挑战杯项目，需要看大量文献打磨变量间的逻辑；在这种关键时刻，我竟然还接了个活，替一个视频网站准备十期心理学内容的直播，测试网站的直播功能。 于是身心俱疲的我，在">
+<meta name="description" content="自学R的时候遇到的问题挺多的，大部分问题Google一下都有答案，当场也就解决了。但有些问题重复出现，每次出现又得重新Google，也是挺费时间的。所以干脆开个bug集锦文章，总结整理一下自己自学R的时候遇到的问题/出过的报错，还有对应的解决方案。 希望能帮遇到同样问题的你节省一点时间。 爱因斯坦说这个问题我早想过了的故事 问题:怎么删除数据框里面特定的行？whichdat[with(dat,y&amp;">
+<meta name="keywords" content="R语言,自学,数据分析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="曾笑雨的个人网志">
-<meta property="og:url" content="https://v754424340.github.io/迷人的小烦恼/index.html">
+<meta property="og:title" content="学R时习之：自学R语言过程中我遇到的问题&#x2F;报错，以及解决措施">
+<meta property="og:url" content="https://xiaoyuzeng.github.io/学R时习之：自学R语言过程中我遇到的问题-报错，以及解决措施/index.html">
 <meta property="og:site_name" content="曾笑雨的个人网志">
-<meta property="og:description" content="#迷人的烦恼 因为要收集素材写博客，匆匆回顾了九月份的日记，发现本学期的第三周真是过得非常艰难，隔着文字我都能感觉到自己的疲惫。 这些疲惫主要来自三个方面。我要用两周时间复习完微积分和普通心理学，这是转专业的代价，无话可说；其次，和同学准备挑战杯项目，需要看大量文献打磨变量间的逻辑；在这种关键时刻，我竟然还接了个活，替一个视频网站准备十期心理学内容的直播，测试网站的直播功能。 于是身心俱疲的我，在">
+<meta property="og:description" content="自学R的时候遇到的问题挺多的，大部分问题Google一下都有答案，当场也就解决了。但有些问题重复出现，每次出现又得重新Google，也是挺费时间的。所以干脆开个bug集锦文章，总结整理一下自己自学R的时候遇到的问题/出过的报错，还有对应的解决方案。 希望能帮遇到同样问题的你节省一点时间。 爱因斯坦说这个问题我早想过了的故事 问题:怎么删除数据框里面特定的行？whichdat[with(dat,y&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2016-10-22T02:25:29.443Z">
+<meta property="og:updated_time" content="2019-08-06T09:14:05.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="曾笑雨的个人网志">
-<meta name="twitter:description" content="#迷人的烦恼 因为要收集素材写博客，匆匆回顾了九月份的日记，发现本学期的第三周真是过得非常艰难，隔着文字我都能感觉到自己的疲惫。 这些疲惫主要来自三个方面。我要用两周时间复习完微积分和普通心理学，这是转专业的代价，无话可说；其次，和同学准备挑战杯项目，需要看大量文献打磨变量间的逻辑；在这种关键时刻，我竟然还接了个活，替一个视频网站准备十期心理学内容的直播，测试网站的直播功能。 于是身心俱疲的我，在">
+<meta name="twitter:title" content="学R时习之：自学R语言过程中我遇到的问题&#x2F;报错，以及解决措施">
+<meta name="twitter:description" content="自学R的时候遇到的问题挺多的，大部分问题Google一下都有答案，当场也就解决了。但有些问题重复出现，每次出现又得重新Google，也是挺费时间的。所以干脆开个bug集锦文章，总结整理一下自己自学R的时候遇到的问题/出过的报错，还有对应的解决方案。 希望能帮遇到同样问题的你节省一点时间。 爱因斯坦说这个问题我早想过了的故事 问题:怎么删除数据框里面特定的行？whichdat[with(dat,y&amp;">
 
 
 
@@ -103,8 +97,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -122,7 +116,7 @@
 </script>
 
 
-  <title>  | 曾笑雨的个人网志 </title>
+  <title> 学R时习之：自学R语言过程中我遇到的问题/报错，以及解决措施 | 曾笑雨的个人网志 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -259,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://v754424340.github.io/迷人的小烦恼/">
+  <link itemprop="mainEntityOfPage" href="https://xiaoyuzeng.github.io/学R时习之：自学R语言过程中我遇到的问题-报错，以及解决措施/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="曾笑雨">
@@ -283,7 +277,7 @@
             
             
               
-                
+                学R时习之：自学R语言过程中我遇到的问题/报错，以及解决措施
               
             
           </h2>
@@ -298,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-04T09:09:12+08:00">
-                2019-08-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-06T16:25:00+08:00">
+                2019-08-06
               </time>
             
 
@@ -311,16 +305,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/迷人的小烦恼/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="迷人的小烦恼/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -344,22 +328,11 @@
       
 
       
-        <p>#迷人的烦恼</p>
-<p>因为要收集素材写博客，匆匆回顾了九月份的日记，发现本学期的第三周真是过得非常艰难，隔着文字我都能感觉到自己的疲惫。</p>
-<p>这些疲惫主要来自三个方面。我要用两周时间复习完微积分和普通心理学，这是转专业的代价，无话可说；其次，和同学准备挑战杯项目，需要看大量文献打磨变量间的逻辑；在这种关键时刻，我竟然还接了个活，替一个视频网站准备十期心理学内容的直播，测试网站的直播功能。</p>
-<p>于是身心俱疲的我，在那段时间搞砸了无数小事。本来无足轻重的小事，竟然也成了烦恼的来源，而本不足为外人道的小烦恼，又让我更加疲惫。</p>
-<p>这些小事包括但不限于，在要给校园卡充值时，错把身份证当成银行卡；在开寝室门时，因为太心急，扭断了钥匙，两把；失去往常的自控能力，频繁地吃汉堡薯条和其他不健康但美味的食物。最糟糕的是，在那段时间，我和女朋友聊天时也时常变得没有耐心，极易被激怒，这真是很不好。</p>
-<p>若在平时，这些小事都不足以称为问题，甚至根本不会发生，可在我被微积分、挑战杯、心理学直播忙得焦头烂额时，这些小烦恼却能轻易毁了我一天的心情，让我在做其他事都感到深深的挫败感。</p>
-<p>几年前听许嵩唱“小烦恼，没什么大不了，请让我看到你翘起来的嘴角”，觉得真是洒脱，令人羡慕。但歌词远非事实。<strong>现实情况是，已有的问题和任务，会催生无数小烦恼。</strong>著名的墨菲定律和侯世达法可以为之做出解释。完成任务或者解决问题时，我们总会遇到各种意外和突发情况。本想算二重积分，发现应先背熟求导公式和积分公式；本来挑战杯想研究三个变量间的中介效应，惊奇地发现原来是调节效应；本想做一期关于“自我概念”的直播，却发现摄像头和麦克风坏了。</p>
-<p>每个任务和问题，都可以拆解成多个环节，若非真的对任务和问题非常熟悉，在每个环节出差错几乎是必然的事。<strong>这些困难，特别是随之而来的挫败感，就是烦恼的第一重来源。</strong></p>
-<p><strong>任务和问题如此，学习便也如是。</strong>由于学习的目的就是掌握未知的信息和技能，所以学习必定是件让人心烦的事。所谓的“学习让我快乐”，那是完成学习以后在别处获得良好反馈之后的事。著名的“学习区”理论和刻意练习理论阐述的也是这个原理。两者都强调，在学习过程中，学习者要不停关注那些“不熟悉、但经过努力可以掌握”的知识和技能。对未知的探索使人成长，也让人疲惫。</p>
-<p><strong>除了任务本身的意外带来的挫折感，烦恼还来自于生活中的琐事。</strong>我会继续用上文中的故事来说明。身份证当然不能给校园卡充值，可这也不是什么大问题，回寝室取银行卡也就是了，但我那天却差点对室友大发雷霆，只因他开玩笑的地说我一向如此，对于我这次犯错，他根本不以为奇；扭断寝室的钥匙，这当然不全是我的错，第二把钥匙质量本就有问题，可这事却令我懊恼很久，这种归因方式本就值得商榷。</p>
-<p>后来我看了《稀缺》这本书，才恍然大悟。<strong>我们的认知资源是有限的，也就是说，你用于完成任务和解决问题耗费了过多的认知资源，那你就没有余额用于思考和处理生活中的琐事了。</strong>更具体的解释则是，你会失去对注意力、情绪、行为的控制力。这就是为什么在任务缠身时，我那么容易情绪失控，很难再坚持健康的饮食和作息。而这些失控，成了我生活中的一个个小烦恼。</p>
-<p><strong>烦恼令人憔悴，可我们已经接受了任务，又决定了要持续学习新知，又该如何处理随之而来的烦恼呢？</strong>于是我很好奇，有没有人在生活中几乎没有问题和烦恼呢？就大学生而言，只要你不参加活动，不在期末之外的时间学习其他知识和技能，那么你能很轻易就活得很逍遥，也就是说，基本没有烦恼。不用面对难题和任务很简单，生活琐事却是避不开的，可他们手握大量的时间和认知资源，处理这些生活琐事自然手到擒来，又怎么会烦恼呢？</p>
-<p><strong>逃避问题和放弃学习自然不是君子所为。</strong>我宁愿被烦恼和问题折磨，也不愿停止成长。我们还是可以从“学习区”理论中找到一条出路。“学习区”指的是个体应在在自身能力范围之内处理任务和学习，若超出这个能力范围，则被称为“恐慌区”。身陷“恐慌区”对结果毫无帮助，是名副其实的“自找麻烦”。<strong>量力而行，不接受超出自身能力太多的任务和学习，是处理烦恼的第一道防线。</strong></p>
-<p><strong>不管烦恼来自任务和学习还是生活琐事，其本质都是压力与挫折感。</strong>拉扎勒斯是研究情绪的一位心理学大牛，他和妻子在1994就对这个问题有所讨论。他们发现，人们在生活中遇到的压力和挫折，一方面是来自于重大生活事件、灾难与创伤，另一方面确是日常挫折。这和我们上文的论述是统一的。</p>
-<p><strong>于是拉扎勒斯又提出了两种应对压力和挫折的策略，分别是问题中心和情绪中心。</strong>前者指的是通过直接的行动，解决掉麻烦附着的问题；后者则是避开烦恼的来源，先通过转移注意力、倾诉等方式平复心情。问题中心策略提倡对烦恼一击必杀，而情绪中心策略就迂回作战，闪耀着人性的光辉。</p>
-<p>大体策略如此，应对烦恼的具体方法就因人而异了。根源于成长的烦恼，让人又爱又恨，迷人得很。</p>
+        <p>自学R的时候遇到的问题挺多的，大部分问题Google一下都有答案，当场也就解决了。但有些问题重复出现，每次出现又得重新Google，也是挺费时间的。所以干脆开个bug集锦文章，总结整理一下自己自学R的时候遇到的问题/出过的报错，还有对应的解决方案。</p>
+<p>希望能帮遇到同样问题的你节省一点时间。</p>
+<p>爱因斯坦说这个问题我早想过了的故事</p>
+<h1 id="问题-怎么删除数据框里面特定的行？"><a href="#问题-怎么删除数据框里面特定的行？" class="headerlink" title="问题:怎么删除数据框里面特定的行？"></a>问题:怎么删除数据框里面特定的行？</h1><p>which<br>dat[with(dat,y&gt;=2),]</p>
+<h1 id="报错：-Error-in-if-stderr-lt-10-Machine-double-eps-max-abs-mx-abs-my-stop-“data-are-essentially-constant”"><a href="#报错：-Error-in-if-stderr-lt-10-Machine-double-eps-max-abs-mx-abs-my-stop-“data-are-essentially-constant”" class="headerlink" title="报错： Error in if (stderr &lt; 10  .Machine$double.eps  max(abs(mx), abs(my))) stop(“data are essentially constant”) :"></a>报错： Error in if (stderr &lt; 10 <em> .Machine$double.eps </em> max(abs(mx), abs(my))) stop(“data are essentially constant”) :</h1><p>  missing value where TRUE/FALSE needed</p>
 
       
     </div>
@@ -380,6 +353,16 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R语言/" rel="tag"># R语言</a>
+          
+            <a href="/tags/自学/" rel="tag"># 自学</a>
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+        </div>
       
 
       
@@ -409,22 +392,6 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="迷人的小烦恼/" data-title data-content data-url="https://v754424340.github.io/迷人的小烦恼/">
-  <div class="ds-share-inline">
-    <ul class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
     </div>
   </div>
 
@@ -435,9 +402,6 @@
 
           
   <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="迷人的小烦恼/" data-title data-url="https://v754424340.github.io/迷人的小烦恼/">
-      </div>
     
   </div>
 
@@ -460,8 +424,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/upload/avatar.jpg" alt="曾笑雨">
           <p class="site-author-name" itemprop="name">曾笑雨</p>
@@ -490,7 +463,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -523,6 +496,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题-怎么删除数据框里面特定的行？"><span class="nav-number">1.</span> <span class="nav-text">问题:怎么删除数据框里面特定的行？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#报错：-Error-in-if-stderr-lt-10-Machine-double-eps-max-abs-mx-abs-my-stop-“data-are-essentially-constant”"><span class="nav-number">2.</span> <span class="nav-text">报错： Error in if (stderr &lt; 10  .Machine$double.eps  max(abs(mx), abs(my))) stop(“data are essentially constant”) :</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
@@ -552,7 +541,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
@@ -620,6 +609,13 @@
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
@@ -635,37 +631,32 @@
 
   
 
-  
-    
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"v754424340"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
 
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+
+
+
+
+	
+
+
+
+
+
   
 
 
 
 
 
+  
 
-
-
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
 
 
 
