@@ -41,7 +41,6 @@ options(servr.daemon = TRUE)
 ```
 
 
----
 class:inverse,middle,cente
 ## What we are going to discuss about
 
