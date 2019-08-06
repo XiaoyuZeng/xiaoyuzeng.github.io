@@ -1,6 +1,6 @@
 ---
 title: "NSVS pilot Analysis"
-author: "Hejing, Chenxiao, Xiaoyu"
+author: "Chenxiao, Hejing, Xiaoyu"
 date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
@@ -24,7 +24,12 @@ class:inverse,middle,center
 --
 
 ### 3.To validate this classification by testing the difference across a series of measurements.
-```{r,library,echo=FALSE}
+```{r,setup,echo=FALSE,results=F,include=FALSE}
+options(htmltools.dir.version = FALSE)
+options(servr.daemon = TRUE)
+```
+
+```{r,echo=FALSE,results=F,include=FALSE}
 library(tidyverse)
 library(rio)
 library(summarytools)
@@ -44,12 +49,6 @@ library(xaringan)
 library(xaringanthemer)
 library(reshape) 
 ``` 
-
-
-```{r,setup,echo=FALSE,results=F,include=FALSE}
-options(htmltools.dir.version = FALSE)
-options(servr.daemon = TRUE)
-```
 
 ```{r,xaringan-themer,echo=FALSE,results=F,include=FALSE}
 library(xaringanthemer)
@@ -1325,4 +1324,3 @@ class:center,middle,inverse
 
 #pagedown::chrome_print(browser = 'C:/Users/Zengxiaoyu/AppData/Local/Google/Chrome/Application/chrome.exe',"E:/Zengxiaoyu/zxy_projcet/R-projects/test.Rmd")
 ```
-
