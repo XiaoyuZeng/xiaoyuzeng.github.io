@@ -19,7 +19,7 @@ class:inverse,middle,center
 
 --
 
-### 2.To idientify those people with deontological and utilitarian preference by checking whether they behave consistently
+### 2.To identify those people with deontological and utilitarian preference by checking whether they behave consistently
 
 --
 
