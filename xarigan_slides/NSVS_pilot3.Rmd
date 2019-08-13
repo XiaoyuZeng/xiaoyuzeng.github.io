@@ -799,11 +799,17 @@ names(OUS_SUM_dt) <-c(
 )
 
 
-
+summary(OUS_SUM_dt)
 ##visualize survey using likert
+#Here we will recode each factor and explicitly set the levels
+
+for(i in seq_along(OUS_SUM_dt)) {
+	OUS_SUM_dt[,i] <- factor(OUS_SUM_dt[,i], levels=1:7)
+}
+
+
 OUS_likert <- likert(OUS_SUM_dt)
 
-OUS_likert<-OUS_likert[-10,]
 plot(OUS_likert)
 
 ```
