@@ -25,6 +25,7 @@ class:inverse,middle,center
 
 ### 3.To validate this classification by testing the difference across a series of measurements.
 ```{r,library,echo=FALSE}
+rm=list(ls())
 library(tidyverse)
 library(rio)
 library(summarytools)
@@ -43,6 +44,7 @@ library(ggcorrplot)
 library(xaringan)
 library(xaringanthemer)
 library(reshape) 
+library(likert)
 ``` 
 
 
@@ -206,19 +208,25 @@ print(dfSummary(all_dilemma_dt, valid.col = FALSE, graph.magnif = 0.75),
 ??同样地，在本来情况是inaction 的dilemma里面，我们也发现了5个dilemma是区分质量比较低的
 ---
 class: center
+
 ## Consistent rate of saying YES in two types dilemmas
 
 ```{r echo=FALSE,}
 # data pre
 data$acinc <- (acinc_df$data.Q19+acinc_df$data.Q196+acinc_df$data.Q110+acinc_df$data.Q122+acinc_df$data.Q128+acinc_df$data.Q130)
+
 data$accon <- (accon_df$data.Q106+accon_df$data.Q108+accon_df$data.Q120+accon_df$data.Q124+accon_df$data.Q126+accon_df$data.Q135)
+
 data$ininc <- (ininc_df$data.Q94+ininc_df$data.Q97+ininc_df$data.Q101+ininc_df$data.Q104+ininc_df$data.Q191+ininc_df$data.Q132)
+
 data$incon <- (incon_df$data.Q99+incon_df$data.Q113+incon_df$data.Q114+incon_df$data.Q116+incon_df$data.Q118+incon_df$data.Q134)
 
 data$perc_acinc <-  data$acinc/6
 data$perc_accon <-  data$accon/6
-data$perc_ininc <-  data$ininc/3
-data$perc_incon <-  data$incon/4
+data$perc_ininc <-  data$ininc/6
+data$perc_incon <-  data$incon/6
+data$consistent_action_rate <- (data$acinc+data$accon+
+                                   data$ininc+data$incon)/24
 ```
 
 
@@ -273,6 +281,7 @@ data$incon_2 <- (incon_df$data.Q99+incon_df$data.Q113+incon_df$data.Q114+incon_d
 data$perc_ininc_2 <-  data$ininc_2/3
 data$perc_incon_2 <-  data$incon_2/4
 ```
+
 
 ```{r echo=FALSE,results=F,fig.height=5,fig.width=10}
 
@@ -336,10 +345,10 @@ class:center
 
 ```{r echo=FALSE,fig.height=4,fig.width=5, dev='svg',warning=FALSE}
 k2 <- kmeans(clusterdata, centers = 4, nstart = 25)
-k3 <- kmeans(clusterdata_3, centers = 4, nstart = 25)
-k4 <- kmeans(clusterdata_4, centers = 4, nstart = 25)
+#k3 <- kmeans(clusterdata_3, centers = 4, nstart = 25)
+#k4 <- kmeans(clusterdata_4, centers = 4, nstart = 25)
 
-#data$NOcluster <- k2$cluster
+data$NOcluster_complete <- k2$cluster
 #str(k2)
 
 fviz_cluster(k2, geom = "point",data = clusterdata,
@@ -355,22 +364,164 @@ fviz_cluster(k2, geom = "point",data = clusterdata,
 12,X=0.75,Y=0.85
 ]
 
+```{r echo=FALSE}
 
+clusterone_complete <- filter(data,data$NOcluster_complete==1)
+clustertwo_complete <- filter(data,data$NOcluster_complete==2)
+clusterthree_complete <- filter(data,data$NOcluster_complete==3)
+clusterfour_complete <- filter(data,data$NOcluster_complete==4)
 
-```{r echo=FALSE,results=F,fig.height=4,fig.width=5, dev='svg',warning=FALSE}
-# k2 <- kmeans(clusterdata, centers = 4, nstart = 25)
-# k3 <- kmeans(clusterdata_3, centers = 4, nstart = 25)
-# k4 <- kmeans(clusterdata_4, centers = 4, nstart = 25)
-# 
-# #k2$cluster
-# #data$NOcluster <- k2$cluster
-# #str(k2)
-# fviz_cluster(k3, geom = "point",data = clusterdata_3,
-#              palette = "Set2",ellipse=TRUE,
-#              ellipse.type = "euclid")+theme_classic()+
-#   labs(x='Saying YES in incongruent dilemmas',y='Saying YES in congruent dilemmas')
+clusterone_complete <- data.frame(clusterone_complete$ID,clusterone_complete$perc_acinc,clusterone_complete$perc_accon,clusterone_complete$consistent_action_rate)
+
+clustertwo_complete <- data.frame(clustertwo_complete$ID,clustertwo_complete$perc_acinc,clustertwo_complete$perc_accon,clustertwo_complete$consistent_action_rate)
+
+clusterthree_complete <- data.frame(clusterthree_complete$ID,clusterthree_complete$perc_acinc,clusterthree_complete$perc_accon,clusterthree_complete$consistent_action_rate)
+
+clusterfour_complete <- data.frame(clusterfour_complete$ID,clusterfour_complete$perc_acinc,clusterfour_complete$perc_accon,clusterfour_complete$consistent_action_rate)
+
+# mean(clusterone$perc_acinc_2)
+# mean(clusterone$perc_accon)
+# mean(clustertwo$perc_acinc_2)
+# mean(clustertwo$perc_accon)
+# mean(clusterthree$perc_acinc_2)
+# mean(clusterthree$perc_accon)
+# mean(clusterfour$perc_acinc_2)
+# mean(clusterfour$perc_accon)
+```
+
+---
+
+class:center
+## Let's take a look at these groups
+```{r echo=FALSE}
+nrow(clusterone_complete)
+mean(clusterone_complete$clusterone_complete.perc_acinc)
+mean(clusterone_complete$clusterone_complete.perc_accon)
+formattable(clusterone_complete,list(
+  perc_acinc = color_bar('lightpink'),
+  perc_accon = color_bar('lightblue'),
+  consistent_action_rate=color_bar('blue')
+))
 
 ```
+
+---
+class:center
+## Let's take a look at these groups
+### 
+```{r echo=FALSE}
+nrow(clustertwo_complete)
+mean(clustertwo_complete$clustertwo_complete.perc_acinc) 
+mean(clustertwo_complete$clustertwo_complete.perc_accon)
+formattable(clustertwo_complete,list(
+  perc_acinc = color_bar('lightpink'),
+  perc_accon = color_bar('lightblue'),
+  consistent_action_rate=color_bar('blue')
+))
+
+```
+
+---
+class:center
+## Let's take a look at these groups
+```{r echo=FALSE}
+nrow(clusterthree_complete)
+mean(clusterthree_complete$clusterthree_complete.perc_acinc)
+mean(clusterthree_complete$clusterthree_complete.perc_accon)
+formattable(clusterthree_complete,list(
+  perc_acinc = color_bar('lightpink'),
+  perc_accon = color_bar('lightblue'),
+  consistent_action_rate=color_bar('blue')
+))
+
+```
+
+---
+class:center
+## Let's take a look at these groups
+```{r echo=FALSE}
+nrow(clusterfour_complete)
+mean(clusterfour_complete$clusterfour_complete.perc_acinc)
+mean(clusterfour_complete$clusterfour_complete.perc_accon)
+formattable(clusterfour_complete,list(
+  perc_acinc = color_bar('lightpink'),
+  perc_accon = color_bar('lightblue'),
+  consistent_action_rate=color_bar('blue')
+))
+
+```
+
+
+
+---
+  ### People with **deontological** preference in moral dilemmas
+  
+```{r echo=FALSE}
+
+deon_data <- filter(data,data$perc_acinc<=1/3&data$perc_accon<=1/3)
+deon_data <- select(deon_data,ID,perc_acinc,perc_accon,consistent_action_rate)
+nrow(deon_data)
+mean(deon_data$perc_acinc)
+mean(deon_data$perc_accon)
+formattable(deon_data,list(
+    perc_acinc = color_bar('lightpink'),
+    perc_accon = color_bar('lightblue'),
+    consistent_action_rate = color_bar('lightpink')
+  ))
+```
+
+---
+### People with **utilitarian** preference in moral dilemmas
+  
+```{r echo=FALSE}
+
+utili_data <- filter(data,data$perc_acinc>=2/3&data$perc_accon<=1/3)
+utili_data <- select(utili_data,ID,perc_acinc,perc_accon,consistent_action_rate)
+nrow(utili_data)
+mean(utili_data$perc_acinc)
+mean(utili_data$perc_accon)
+mean(utili_data$consistent_action_rate)
+summary(utili_data$consistent_action_rate)
+formattable(utili_data,list(
+    perc_acinc = color_bar('lightpink'),
+    perc_accon = color_bar('lightblue'),
+    consistent_action_rate = color_bar('lightpink')
+  ))
+```
+```{r}
+write.table(deon_data,'clipboard',sep='\t',row.names=FALSE,col.names = FALSE)
+write.table(utili_data,'clipboard',sep='\t',row.names=FALSE,col.names = FALSE)
+```
+
+
+
+
+
+
+
+
+```{r}
+# to always have the same kitty on README
+#set.seed(1)
+
+# show me the kitty NOW!
+kittyR::kittyR(meow = TRUE,sound = 3,only_kitten = TRUE)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 class:center
@@ -601,8 +752,7 @@ class:inverse,middle,center
 
 
 ```{r,echo=FALSE,results=F,echo=FALSE,message=F, warning=F}
-#call function to reverse code items
-
+library(likert)
 #create mean OUS-IB score and add to dataframe
 data$IBenefit <- ((data$A1_Q251+data$A3_Q251+data$A5_Q251+data$A7_Q251+data$A9_Q251)/5)
 data$IHarm <- ((data$A2_Q251+data$A4_Q251+data$A6_Q251+data$A8_Q251)/4)
@@ -621,7 +771,40 @@ psych::alpha(OUS_IBenefit_dt)$total$std.alpha
 psych::alpha(OUS_IHHarm_dt)$total$std.alpha
 psych::alpha(OUS_SUM_dt)$total$std.alpha
 
+#look at all choices using likert
 
+##item
+
+OUS_SUM_dt[,'data.A1_Q251']<- factor(OUS_SUM_dt[,'data.A1_Q251'])
+OUS_SUM_dt[,'data.A2_Q251']<- factor(OUS_SUM_dt[,'data.A2_Q251'])
+OUS_SUM_dt[,'data.A3_Q251']<- factor(OUS_SUM_dt[,'data.A3_Q251'])
+OUS_SUM_dt[,'data.A4_Q251']<- factor(OUS_SUM_dt[,'data.A4_Q251'])
+OUS_SUM_dt[,'data.A5_Q251']<- factor(OUS_SUM_dt[,'data.A5_Q251'])
+OUS_SUM_dt[,'data.A6_Q251']<- factor(OUS_SUM_dt[,'data.A6_Q251'])
+OUS_SUM_dt[,'data.A7_Q251']<- factor(OUS_SUM_dt[,'data.A7_Q251'])
+OUS_SUM_dt[,'data.A8_Q251']<- factor(OUS_SUM_dt[,'data.A8_Q251'])
+OUS_SUM_dt[,'data.A9_Q251']<- factor(OUS_SUM_dt[,'data.A9_Q251'])
+
+
+names(OUS_SUM_dt) <-c(
+  data.A1_Q251 ='在紧急情况下牺牲一个人自己的腿',
+  data.A3_Q251 ='伤害这个人帮助另外好几个无辜人',
+  data.A5_Q251 ='有义务将我们的一个肾捐给肾衰竭的人',
+  data.A7_Q251 ='确保人们整体福祉和幸福,使用政治迫害，那么就应该使用政治迫害',
+  data.A9_Q251 ='平等关心地球上所有人的福祉',
+  data.A2_Q251 ='获取防止炸弹爆炸的有效信息，对一个无辜的人施以酷刑',
+  data.A4_Q251 ='没能成功帮助别人和自己去主动伤害他人是一样错误的',
+  data.A6_Q251 ='无辜的人们的死亡, 整体来看更多人被拯救。',
+  data.A8_Q251 ='保留一个人并不真正需要的钱在道德上是错误的'
+)
+
+
+
+##visualize survey using likert
+OUS_likert <- likert(OUS_SUM_dt)
+
+OUS_likert<-OUS_likert[-10,]
+plot(OUS_likert)
 
 ```
 
